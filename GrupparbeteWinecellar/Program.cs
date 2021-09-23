@@ -57,6 +57,9 @@ namespace GroupAssignment1
 
             NrOfBottles(myCellar);
             PrintWines(myCellar);
+            SearchWine(myCellar);
+            DeleteWine(myCellar);
+            PrintWines(myCellar);
         }
 
         /// <summary>
@@ -80,12 +83,13 @@ namespace GroupAssignment1
                         return true;
                     }
                 }
-                catch  (IndexOutOfRangeException ex)
+                catch  (IndexOutOfRangeException)
                 {
                     Console.WriteLine($"Could NOT add to my cellar: {wine.StringToPrint()}");
                     Console.WriteLine();
                 }
-            } return false;
+            }
+            return false;
         }
 
         /// <summary>
@@ -96,7 +100,10 @@ namespace GroupAssignment1
         {
             foreach (var item in myCellar)
             {
-                Console.WriteLine(item.StringToPrint());
+                if (item.Year != null)
+                {
+                    Console.WriteLine(item.StringToPrint());
+                }
             }
             
         }
@@ -118,6 +125,42 @@ namespace GroupAssignment1
             }
             Console.WriteLine($"My cellar has {amountOfBottles} wines: ");
             return amountOfBottles;
+        }
+
+        private static bool SearchWine(Wine[] myCellar)
+        {
+
+            Console.WriteLine("Which wine would you like to search for?");
+
+            string findWine = Console.ReadLine().ToLower();
+
+            for (int i = 0; i < myCellar.Length; i++)
+            {
+                if (myCellar[i].Name.ToLower().Contains(findWine) == true)
+                {
+                    Console.WriteLine("This wine exists in my cellar");
+                    return true;
+                }
+            }
+            Console.WriteLine("This wine does NOT exist");
+            return false;
+        }
+
+        private static bool DeleteWine(Wine[] myCellar)
+        {
+            Console.WriteLine("Which wine would you like to remove");
+
+            string chooseWine = Console.ReadLine().ToUpper();
+
+
+            for (int i = 0; i < myCellar.Length; i++)
+            {
+                if (myCellar[i].Name.ToUpper().Contains(chooseWine) == true)
+                {
+                    Array.Clear(myCellar, i, 1);
+                }
+            }
+            return false;
         }
     }
 }
