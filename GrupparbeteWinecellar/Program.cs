@@ -1,5 +1,6 @@
 ﻿using System;
-
+// Grupp: Legends of Venedig
+// Kaveh Alexandra Josefin
 namespace GroupAssignment1
 {
     public enum GrapeVariants
