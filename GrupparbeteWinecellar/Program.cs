@@ -59,6 +59,7 @@ namespace GroupAssignment1
             PrintWines(myCellar);
             SearchWine(myCellar);
             DeleteWine(myCellar);
+            NrOfBottles(myCellar);
             PrintWines(myCellar);
         }
 
@@ -121,7 +122,10 @@ namespace GroupAssignment1
             int amountOfBottles = 0;
             foreach (var item in myCellar)
             {
+                if (item.Year != null)
+                {
                 amountOfBottles++;
+                }
             }
             Console.WriteLine($"My cellar has {amountOfBottles} wines: ");
             return amountOfBottles;
