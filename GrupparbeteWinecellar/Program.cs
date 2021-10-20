@@ -1,6 +1,6 @@
 ﻿using System;
 // Grupp: Legends of Venedig
-// Kaveh Alexandra.F Josefin
+// Kaveh Alexandra.F Josefine
 namespace GroupAssignment1
 {
     public enum GrapeVariants
@@ -76,7 +76,7 @@ namespace GroupAssignment1
 
             for (int i = 0; i <= myCellar.Length; i++)
             {
-                try
+               try
                 {
                     if (myCellar[i].Year == null)
                     {
@@ -85,7 +85,7 @@ namespace GroupAssignment1
                         return true;
                     }
                 }
-                catch  (IndexOutOfRangeException)
+               catch  (IndexOutOfRangeException)
                 {
                     Console.WriteLine($"Could NOT add to my cellar: {wine.StringToPrint()}");
                     Console.WriteLine();
